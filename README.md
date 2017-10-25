@@ -15,6 +15,27 @@ it, simply add the following line to your `Podfile`:
 pod "Segment-MoEngage"
 ```
 
+## Usage
+
+After adding the dependency, you must register the integration with our SDK.  To do this, import the MoEngage integration in your `AppDelegate`:
+
+```
+#import <Segment-MoEngage/SEGMoEngageIntegrationFactory.h>
+```
+
+And add the following lines:
+
+```
+NSString *const SEGMENT_WRITE_KEY = @" ... ";
+SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:SEGMENT_WRITE_KEY];
+
+[config use:[SEGMoEngageIntegrationFactory instance]];
+
+[SEGAnalytics setupWithConfiguration:config];
+```
+
+Please see our [documentation](https://segment.com/docs/integrations/moengage/) for more information.
+
 ## License
 
 ```
