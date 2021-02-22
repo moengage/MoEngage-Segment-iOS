@@ -1,4 +1,4 @@
-![Logo](https://user-images.githubusercontent.com/15011722/32040752-7237c3c2-ba4f-11e7-9d68-a019049fccf5.png)
+![Logo](https://github.com/moengage/MoEngage-Segment-iOS/blob/supportForMoEVersion7.0.0/Images/moe_logo_blue.png)
 # MoEngage-Segment-iOS
 
 [![Version](https://img.shields.io/cocoapods/v/Segment-MoEngage.svg?style=flat)](http://cocoapods.org/pods/Segment-MoEngage)
@@ -105,10 +105,10 @@ To differentiate between those, use one of the method below:
 
  ```
  //For new Install call following
- [[MoEngage sharedInstance]appStatus:INSTALL];
+ [[MoEngage sharedInstance] appStatus:INSTALL];
 
  //For an app update call following
- [[MoEngage sharedInstance]appStatus:UPDATE];
+ [[MoEngage sharedInstance] appStatus:UPDATE];
  ```
 
 For more info on this refer following [link](https://docs.moengage.com/docs/installupdate-differentiation).

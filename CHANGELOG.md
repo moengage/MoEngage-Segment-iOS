@@ -1,6 +1,8 @@
 Change Log
 ==========
-
+Version 6.0.0 *(23rd February, 2021)*
+-------------------------------------------
+* Updated MoEngage SDK Dependency to 7.0.1 and above.
 
 Version 5.1.0 *(14th December, 2020)*
 -------------------------------------------
