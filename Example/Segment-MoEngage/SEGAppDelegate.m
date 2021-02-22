@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [MoEngage debug:LOG_ALL];
+    [MoEngage enableSDKLogs:true];
     [UNUserNotificationCenter currentNotificationCenter].delegate = self;
     
     [SEGAnalytics debug:true];

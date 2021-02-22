@@ -3,7 +3,7 @@
 #import "SEGAnalytics.h"
 
 #define SegmentAnonymousIDAttribute @"USER_ATTRIBUTE_SEGMENT_ID"
-#define SegmentMoEngageVersion @"5.0.0"
+#define SegmentMoEngageVersion @"6.0.0"
 
 @implementation SEGMoEngageIntegration
 
@@ -18,10 +18,17 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.settings = settings;
             NSString *appID = [self.settings objectForKey:@"apiKey"];
+            MOSDKConfig* currentConfig = [[MoEngage sharedInstance] getDefaultSDKConfiguration];
+            if (currentConfig == nil) {
+                currentConfig = [[MOSDKConfig alloc] initWithAppID:appID];
+            }
+            else{
+                currentConfig.moeAppID = appID;
+            }
 #ifdef DEBUG
-            [[MoEngage sharedInstance] initializeDevWithAppID:appID withLaunchOptions:nil];
+            [[MoEngage sharedInstance] initializeTestWithConfig:currentConfig andLaunchOptions:nil];
 #else
-            [[MoEngage sharedInstance] initializeProdWithAppID:appID withLaunchOptions:nil];
+            [[MoEngage sharedInstance] initializeLiveWithConfig:currentConfig andLaunchOptions:nil];
 #endif
             NSString* segmentAnonymousID = [[SEGAnalytics sharedAnalytics] getAnonymousId];
             if(segmentAnonymousID != nil){
